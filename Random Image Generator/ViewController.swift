@@ -19,12 +19,17 @@ class ViewController: UIViewController {
     
     // adding a button to get random images
     private let button: UIButton = {
-        let buttom = UIButton()
-        buttom.backgroundColor = .white
-        buttom.setTitle("Random Photo", for: .normal)
-        buttom.setTitleColor(.black, for: .normal)
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.setTitle("Random Photo", for: .normal)
+        button.setTitleColor(.black, for: .normal)
         
-        return buttom
+        //styling
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 1
+        button.layer.backgroundColor = UIColor.white.cgColor
+        
+        return button
     }()
     
     
@@ -77,12 +82,13 @@ class ViewController: UIViewController {
             y: view.frame.height-150-view.safeAreaInsets.bottom,
             width: view.frame.size.width-60,
             height: 55)
+        
     }
     
     
     //get random phone
     func getRandomPhoto(){
-        let urlString = "https://source.unsplash.com/collection/190727/300x300"
+        let urlString = "https://source.unsplash.com/collection/190727"
         let url = URL(string:  urlString)!
         guard let data = try? Data(contentsOf: url) else {
             return
